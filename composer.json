@@ -1,7 +1,7 @@
 {
     "name": "dromru/iterable-dbal",
-    "version": "1.0.2",
-    "description": "Классы для разбиения больших sql-запросов коллекций на пачки.",
+    "version": "1.0.3",
+    "description": "Набор классов для разбиения пакетных sql-запросов на раздельные.",
     "type": "library",
     "license": "MIT",
     "authors": [

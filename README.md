@@ -5,18 +5,31 @@
 [![Coverage Status](https://coveralls.io/repos/github/dromru/iterable-dbal/badge.svg?branch=master)](https://coveralls.io/github/dromru/iterable-dbal?branch=master)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg?style=flat-square)](https://php.net/)
 
-Классы для разбиения больших sql-запросов коллекций на пачки.
+## Проблема
+
+Зачастую код получения данных пачками из БД перемешивается с логикой обработки этих данных. Такой код часто дублируется
+и усложняет поддержку.
+
+## Решение
+
+`iterable-dbal` - пакет, который предоставляет набор классов для разбиения пакетных sql-запросов на раздельные.
+Приспособлен для использования в связке с [doctrine/dbal](https://github.com/doctrine/dbal).
 
 P.S. Реализован с использованием генераторов.
 
 ## Примеры использования
+
+Допустим необходимо итерировать по существующим записям в БД с идентификаторами в промежутке от 1 до 1 000 000 000.
+Когда весь 1 000 000 000 из БД в память не влезает (жирный запрос), можно
+использовать `\Drom\Iterable\Dbal\BatchedMinMaxQueryIterator` для того чтобы выполнить N облегчённых запросов - эта
+логика скрыта внутри итератора.
 
 ```php
 /**
  * @var \Doctrine\DBAL\Connection $connection
  */
 $iterator = new \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator(
-    1000,
+    $batchSize = 1000,
     \Closure::fromCallable([$connection, 'fetchFirstColumn']),
     <<<'SQL'
     SELECT id
@@ -26,7 +39,7 @@ $iterator = new \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator(
     SQL,
     [
         'minId' => 1,
-        'maxId' => 15,
+        'maxId' => 1_000_000_000,
         'field1' => [1, 2, 3],
     ],
     [
@@ -36,17 +49,22 @@ $iterator = new \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator(
     ]
 );
 
-foreach ($iterator as $item) {
-    print_r($item);
+foreach ($iterator as $id) {
+    echo PHP_EOL . $id;
 }
 ```
 
+Если требуется итерировать по существующей коллекции идентификаторов, но необходимо получать набор связанных данных, то можно
+использовать `\Drom\Iterable\Dbal\BatchedIdsQueryIterator` для того чтобы выполнить N облегчённых запросов.
+
 ```php
+$ids = [1, 2, /* ... */, 1_000_000_000];
+
 /**
  * @var \Doctrine\DBAL\Connection $connection
  */
 $iterator = new \Drom\Iterable\Dbal\BatchedIdsQueryIterator(
-    1000,
+    $batchSize = 1000,
     \Closure::fromCallable([$connection, 'fetchAllAssociative']),
     <<<'SQL'
     SELECT *
@@ -65,21 +83,8 @@ $iterator = new \Drom\Iterable\Dbal\BatchedIdsQueryIterator(
 );
 
 foreach ($iterator as $item) {
+    echo PHP_EOL;
     print_r($item);
+    echo PHP_EOL;
 }
-```
-
-## Полезняки
-
-```bash
-composer run fix
-composer run lint
-composer run test
-
-composer run phpstan
-composer run phpunit
-composer run phpmd
-composer run phpcs
-composer run php-cs-fixer
-composer run phpcbf
 ```
