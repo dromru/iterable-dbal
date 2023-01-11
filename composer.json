@@ -1,6 +1,5 @@
 {
     "name": "dromru/iterable-dbal",
-    "version": "1.0.3",
     "description": "Набор классов для разбиения пакетных sql-запросов на раздельные.",
     "type": "library",
     "license": "MIT",
