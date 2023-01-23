@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\Drom\Iterable\Dbal;
+namespace Test\Drom\IterableUtils\Dbal;
 
 use function array_shift;
 use function func_get_args;

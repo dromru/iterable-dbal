@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Drom\\Iterable\\Dbal\\": "src/"
+            "Drom\\IterableUtils\\Dbal\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Test\\Drom\\Iterable\\Dbal\\": "test/unit/"
+            "Test\\Drom\\IterableUtils\\Dbal\\": "test/unit/"
         }
     },
     "scripts": {

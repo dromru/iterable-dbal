@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Test\Drom\Iterable\Dbal;
+namespace Test\Drom\IterableUtils\Dbal;
 
 use Closure;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\ParameterType;
-use Drom\Iterable\Dbal\BatchedIdsQueryIterator;
+use Drom\IterableUtils\Dbal\BatchedIdsQueryIterator;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Drom\Iterable\Dbal\BatchedIdsQueryIterator
+ * @covers \Drom\IterableUtils\Dbal\BatchedIdsQueryIterator
  * @codeCoverageIgnore
  */
 class BatchedIdsQueryIteratorTest extends TestCase

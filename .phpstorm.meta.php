@@ -19,19 +19,19 @@ namespace PHPSTORM_META {
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedIdsQueryIterator::__construct(),
+        \Drom\IterableUtils\Dbal\BatchedIdsQueryIterator::__construct(),
         0,
         argumentsSet('dromru_iterable_dbal_batch_size')
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedIdsQueryIterator::__construct(),
+        \Drom\IterableUtils\Dbal\BatchedIdsQueryIterator::__construct(),
         1,
         argumentsSet('dromru_iterable_dbal_connection_method')
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedIdsQueryIterator::__construct(),
+        \Drom\IterableUtils\Dbal\BatchedIdsQueryIterator::__construct(),
         2,
         <<<'SQL'
         SELECT *
@@ -41,7 +41,7 @@ namespace PHPSTORM_META {
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedIdsQueryIterator::__construct(),
+        \Drom\IterableUtils\Dbal\BatchedIdsQueryIterator::__construct(),
         3,
         [
             'ids' => $ids,
@@ -49,7 +49,7 @@ namespace PHPSTORM_META {
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedIdsQueryIterator::__construct(),
+        \Drom\IterableUtils\Dbal\BatchedIdsQueryIterator::__construct(),
         4,
         [
             'ids' => \Doctrine\DBAL\Connection::PARAM_INT_ARRAY,
@@ -57,19 +57,19 @@ namespace PHPSTORM_META {
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator::__construct,
+        \Drom\IterableUtils\Dbal\BatchedMinMaxQueryIterator::__construct,
         0,
         argumentsSet('dromru_iterable_dbal_batch_size')
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator::__construct,
+        \Drom\IterableUtils\Dbal\BatchedMinMaxQueryIterator::__construct,
         1,
         argumentsSet('dromru_iterable_dbal_connection_method')
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator::__construct(),
+        \Drom\IterableUtils\Dbal\BatchedMinMaxQueryIterator::__construct(),
         2,
         <<<'SQL'
         SELECT *
@@ -79,7 +79,7 @@ namespace PHPSTORM_META {
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator::__construct(),
+        \Drom\IterableUtils\Dbal\BatchedMinMaxQueryIterator::__construct(),
         3,
         [
             'minId' => $minId,
@@ -88,7 +88,7 @@ namespace PHPSTORM_META {
     );
 
     expectedArguments(
-        \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator::__construct(),
+        \Drom\IterableUtils\Dbal\BatchedMinMaxQueryIterator::__construct(),
         4,
         [
             'minId' => \Doctrine\DBAL\ParameterType::INTEGER,

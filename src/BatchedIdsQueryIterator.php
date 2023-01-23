@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drom\Iterable\Dbal;
+namespace Drom\IterableUtils\Dbal;
 
 use InvalidArgumentException;
 use IteratorAggregate;
@@ -24,7 +24,7 @@ use function is_array;
  * @phpstan-type Params array{ids: array<int>|array<string>}&array<string, mixed>
  * @phpstan-type Types array{ids: DbalType}&array<string, DbalType>
  *
- * @see \Test\Drom\Iterable\Dbal\BatchedIdsQueryIteratorTest
+ * @see \Test\Drom\IterableUtils\Dbal\BatchedIdsQueryIteratorTest
  */
 class BatchedIdsQueryIterator implements IteratorAggregate
 {

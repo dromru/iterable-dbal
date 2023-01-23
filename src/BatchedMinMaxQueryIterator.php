@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drom\Iterable\Dbal;
+namespace Drom\IterableUtils\Dbal;
 
 use InvalidArgumentException;
 use IteratorAggregate;
@@ -24,7 +24,7 @@ use function min;
  * @phpstan-type Params array{minId: int, maxId: int}&array<string, mixed>
  * @phpstan-type Types array{minId: DbalType, maxId: DbalType}&array<string, DbalType>
  *
- * @see \Test\Drom\Iterable\Dbal\BatchedMinMaxQueryIteratorTest
+ * @see \Test\Drom\IterableUtils\Dbal\BatchedMinMaxQueryIteratorTest
  */
 class BatchedMinMaxQueryIterator implements IteratorAggregate
 {

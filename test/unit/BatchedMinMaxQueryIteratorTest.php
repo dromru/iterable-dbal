@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Test\Drom\Iterable\Dbal;
+namespace Test\Drom\IterableUtils\Dbal;
 
 use Closure;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\ParameterType;
-use Drom\Iterable\Dbal\BatchedMinMaxQueryIterator;
+use Drom\IterableUtils\Dbal\BatchedMinMaxQueryIterator;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Drom\Iterable\Dbal\BatchedMinMaxQueryIterator
+ * @covers \Drom\IterableUtils\Dbal\BatchedMinMaxQueryIterator
  * @codeCoverageIgnore
  */
 class BatchedMinMaxQueryIteratorTest extends TestCase
